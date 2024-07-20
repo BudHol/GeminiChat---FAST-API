@@ -18,3 +18,8 @@ async def root(request: Request):
 async def handle_input(request: Request, user_input:str = Form(...)): 
     response_data = model.generate_content(user_input) 
     return templates.TemplateResponse("index.html", {"request": request, "response_data": response_data.text}) 
+
+
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app)
