@@ -4,47 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatBot</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-            background-color: #f8f9fa;
-        }
-        .container {
-            background-color: #e9ecef;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        #response-markdown {
-            text-align: left;
-        }
-    </style>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container text-center">
-        <h1 class="mb-4">ChatBot</h1>
-        <form action="/" method="post">
-            <div class="form-group">
-                <label for="user_input">Enter your input:</label>
-                <input type="text" id="user_input" name="user_input" class="form-control">
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-6 text-center">Chat with Gemini</h1>
+        <form action="/" method="post" class="space-y-4">
+            <div>
+                <label for="user_input" class="block text-gray-700">Enter your input:</label>
+                <input type="text" id="user_input" name="user_input" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
             </div>
-            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            <button type="submit" class="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600">Submit</button>
         </form>
         {% if response_data %}
-            <div class="mt-4">
-                <div id="response-markdown" class="alert alert-info"></div>
+            <div class="mt-6">
+                <div id="response-markdown" class="p-4 bg-blue-100 border border-blue-300 rounded-md"></div>
             </div>
         {% endif %}
     </div>
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Marked.js for markdown conversion -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
